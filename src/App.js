@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import React from 'react';
+import Order from './Order';
 
-function App() {
+const baseUrl = "http://localhost:8080/api/v1"
+export default function App() {
+  const [ orders, setOrders ] = React.useState(null)
+
+  React.useEffect(() => {
+    axios.get(baseUrl + "/orders")
+    .then(response => {
+      setOrders(response.data)
+    })
+  }, [])
+
+  if (!orders) return null
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      { orders.map(order => <Order key={order.id} order={order}/>)}
     </div>
   );
 }
-
-export default App;

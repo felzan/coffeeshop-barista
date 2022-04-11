@@ -1,0 +1,27 @@
+.Product {
+  display: -webkit-box;
+  justify-content: space-around;
+  background-color: green;
+  align-content: center;
+  height: 90px;
+  line-height: 90px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.ProductImage {
+  width: auto;
+  height: 80px;
+  margin: 5px 15px;
+}
+
+.ProductTitle {
+  font-size: 2.2em;
+  width: 100%;
+  color: white;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  padding-left: -40px;
+}
